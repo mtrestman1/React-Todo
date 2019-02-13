@@ -4,33 +4,23 @@ import React from 'react';
 
 
 
-const todoList = [
-    {
-      task: 'Make Breakfast',
-      id: 123,
-      completed: false
-    },
-    {
-      task: 'Workout',
-      id: 1234,
-      completed: false
-    },
-    {
-    task: 'Pack Lunch',
-    id: 12345,
-    completed: false
-  },
-  {
-    task: 'Complete Assignment',
-    id: 123456,
-    completed: false
-  },
-  {
-    task: 'Pick Up Dinner',
-    id: 1234567,
-    completed: false
-  },
-  ];
+// const TodoList = [
+//     {
+//       task: 'Make Breakfast',
+//       id: 123,
+//       completed: false
+//     },
+//     {
+//     task: 'Pack Lunch',
+//     id: 1234,
+//     completed: false
+//   },
+//   {
+//     task: 'Complete Assignment',
+//     id: 12345,
+//     completed: false
+//   },
+//   ];
 
  
 
@@ -38,4 +28,4 @@ const todoList = [
 
 
 
-  export default todoList;
+//   export default TodoList;
