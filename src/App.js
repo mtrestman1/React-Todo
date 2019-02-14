@@ -5,60 +5,111 @@
 
 import React from 'react';
 import TodoForm from './components/TodoComponents/TodoForm';
-import Todo from './components/TodoComponents/Todo';
+import TodoList from './components/TodoComponents/TodoList'
 
 
+// class App extends React.Component {
+//   constructor() {
+//     super();
+//     this.state = {
+//      activities: [
+//       {
+//       task: '',
+//       id: '',
+//       completed: false
+//      }]
+      
+//     }
+//   }
+
+//   addTodo = task => {
+//     task.preventDefault();
+//    console.log(this.state)
+    
+//     const newTodo = {
+//       task: this.state.task,
+//       id: Date.now(),
+//       completed: false,
+      
+//     };
+//     this.setState({
+//       activities: [...this.state.activities, newTodo],
+      
+     
+//     });
+//   };
 
 class App extends React.Component {
   constructor() {
     super();
-    this.state = {
-     activities: [
-      {
-      task: '',
-      id: '',
-      completed: false
-     }]
-      
-    }
+    this.state={
+      tasks: [],
+      inputText: ''
+    };
   }
 
-  addTodo = e => {
+  addTask = e => {
     e.preventDefault();
-    
-    const newTodo = {
-      task: this.state.task,
-      id: this.state.id,
-      completed: this.state.completed,
-      
-    };
     this.setState({
-      activities: [...this.state.activities, newTodo],
-      task: '',
-     
+      tasks: [
+        ...this.state.tasks,
+        { task: this.state.inputText,
+          id: Date.now(),
+          completed: false
+        }
+      ],
+      inputText: ''
     });
-  };
+
+  }
 
   handleChanges = e => {
       this.setState({
-      [e.target.name]: e.target.value
+      inputText: e.target.value
     });
   };
   render() {
     return (
       <div>
         <h2>Todo List</h2>
-        
-   <TodoForm />
+
+    <TodoList 
+    tasks ={this.state.tasks}
+    />    
+
+   <TodoForm 
+   addTodo={this.addTask}
+   inputText={this.inputText}
+   handleChanges={this.handleChanges}
+   />
    
-{this.state.activities.map(activity => {
-return <Todo 
-activities={activity} 
-/>
-})}
+
+
         </div>
     );
   }
 }
 
 export default App;
+
+
+// render() {
+//   return (
+//     <div>
+//       <h2>Welcome to your Todo App!</h2>
+//       <TodoList
+//         tasks={this.state.tasks}
+        
+//       />
+//       <TodoForm 
+//         inputText={this.state.inputText}
+//         handleChanges={this.handleChanges}
+//         addTask={this.addTask}
+        
+//       />
+//     </div>
+//   );
+// }
+// }
+
+// export default App;
